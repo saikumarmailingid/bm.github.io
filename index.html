@@ -7,21 +7,27 @@
     <title>Thrifty Voyage Ventures</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #1e3250, #2a3a4e);
-            /* Gradient background color */
-            color: #fff;
-            /* Light text color */
+            background: linear-gradient(to right, #5ac8fa, #74ebd5),
+                        url('images/bg1.jpg'),
+                        url('images/bg2.jpg'),
+                        url('images/bg3.jpg');
+            /* Gradient background color - light blue-green mix and multiple images */
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #2c3e50;
+            /* Slightly darker text color */
         }
 
         header {
-            background-color: #2a3a4e;
-            /* Darker blue header color */
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue header color with transparency */
             color: #fff;
             text-align: center;
             padding: 1em;
+            border-bottom: 5px solid #2980b9;
         }
 
         header img {
@@ -30,7 +36,8 @@
         }
 
         nav {
-            background-color: #2a3a4e;
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue navigation color with transparency */
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -41,69 +48,122 @@
             text-decoration: none;
             padding: 0.5em 1em;
             margin: 0 1em;
-            border-radius: 5px;
-            background-color: #3c4f6d;
-            /* Slightly lighter blue button color */
+            border-radius: 25px;
+            background-color: rgba(41, 128, 185, 0.9);
+            /* Dark blue button color with transparency */
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #52678f;
-            /* Lighter blue button color on hover */
+            background-color: rgba(77, 166, 255, 0.9);
+            /* Lighter blue button color on hover with transparency */
         }
 
         section {
+            position: relative;
             padding: 2em;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        section h2 {
+            color: #2980b9;
+            /* Dark blue heading color */
+        }
+
+        #home {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('images/mountain1.jpg'),
+                        url('images/mountain2.jpg'),
+                        url('images/mountain3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: #fff;
+            /* White text color for better readability */
+            padding: 3em;
+        }
+
+        #home img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        #home:hover img {
+            opacity: 0.5;
+            /* Reduce opacity on hover */
+        }
+
+        #welcome-text {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #welcome-text p {
+            display: inline-block;
+            animation: slideIn 3s ease-in-out infinite;
+            font-size: 2em; /* Increased font size */
+            color: #fff;    /* White text color */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            50% {
+                transform: translateY(0%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
 
         footer {
-            background-color: #2a3a4e;
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue footer color with transparency */
             color: #fff;
             text-align: center;
             padding: 1em;
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        #home {
-            text-align: center;
-        }
-
-        #home img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            margin-top: 1em;
+            border-top: 5px solid #2980b9;
         }
 
         #destinations ul,
         #packages ul {
             list-style-type: none;
             padding: 0;
-            text-align: center;
         }
 
         #destinations ul li,
         #packages ul li {
-            background-color: #3c4f6d;
+            background-color: rgba(41, 128, 185, 0.9);
+            /* Dark blue list item color with transparency */
             border-radius: 10px;
             margin: 0.5em 0;
             padding: 1em;
+            transition: background-color 0.3s ease;
         }
 
-        #destinations h2,
-        #packages h2 {
-            text-align: center;
+        #destinations ul li:hover,
+        #packages ul li:hover {
+            background-color: rgba(77, 166, 255, 0.9);
+            /* Lighter blue on hover with transparency */
         }
 
-        #packages .package-description {
-            text-align: left;
-            margin-top: 1em;
+        #packages .package {
+            margin-bottom: 2em;
         }
 
         #contact {
-            text-align: center;
+            margin-top: 2em;
         }
 
         address {
@@ -128,9 +188,13 @@
     </nav>
 
     <section id="home">
-        <h2>Welcome to Thrifty Voyage Ventures</h2>
-        <p>Affordable Journeys, Unforgettable Experiences!</p>
-        <img src="images/travel-image.jpg" alt="Travel Image">
+        <div id="welcome-text">
+            <p>Welcome to Thrifty Voyage Ventures</p><br>
+            <p>Affordable Journeys, Unforgettable Experiences!</p>
+        </div>
+        <img src="images/mountain1.jpg" alt="Mountain Image 1">
+        <img src="images/mountain2.jpg" alt="Mountain Image 2">
+        <img src="images/mountain3.jpg" alt="Mountain Image 3">
     </section>
 
     <section id="destinations">
@@ -159,105 +223,92 @@
 
     <section id="packages">
         <h2>Travel Packages</h2>
-        <ul>
-            <li class="package">
-                <h3>1.Culinary Exploration Services</h3>
-                <div class="package-description">
-            <li>Description: Provide guided culinary tours, taking individuals on a gastronomic journey to explore
-                localcuisines and culinary traditions.</li>
-            <p>Key Features:</p>
-            <ul>
-                <li>Visits to local markets, cooking classes, and food tastings.</li>
-                <li>Transportation to various culinary hotspots.</li>
-                <li>Personalized scheduling of food-related activities.</li>
-            </ul>
+        <div class="package">
+            <h3>1. Culinary Exploration Services</h3>
+            <div class="package-description">
+                <p>Description: Provide guided culinary tours, taking individuals on a gastronomic journey to explore
+                    local cuisines and culinary traditions.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Visits to local markets, cooking classes, and food tastings.</li>
+                    <li>Transportation to various culinary hotspots.</li>
+                    <li>Personalized scheduling of food-related activities.</li>
+                </ul>
             </div>
-            </li>
-            <br>
-            <br>
-            <li class="package">
-                <h3>2. Wellness Retreats and Transport</h3>
-                <div class="package-description">
-            <li>Description: Design wellness retreats that include spa visits, meditation sessions, and outdoor
-                activities. Offer transportation and guide services for a stress-free experience.</li>
-            <p>Key Features:</p>
-            <ul>
-                <li>Wellness-focused itineraries with yoga and meditation sessions.</li>
-                <li>Comfortable transportation to and from retreat locations.</li>
-                <li>Scheduling of wellness activities and spa appointments.</li>
-            </ul>
+        </div>
+
+        <div class="package">
+            <h3>2. Wellness Retreats and Transport</h3>
+            <div class="package-description">
+                <p>Description: Design wellness retreats that include spa visits, meditation sessions, and outdoor
+                    activities. Offer transportation and guide services for a stress-free experience.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Wellness-focused itineraries with yoga and meditation sessions.</li>
+                    <li>Comfortable transportation to and from retreat locations.</li>
+                    <li>Scheduling of wellness activities and spa appointments.</li>
+                </ul>
             </div>
-            </li>
-            <br>
-            <br>
+        </div>
 
-            <li class="package">
-                <h4>3. Historical and Cultural Tours:</h4>
-                <div class="package-description">
-            <li>Description: Create immersive tours focusing on historical and cultural landmarks. Provide
-                transportation and knowledgeable guides.</li>
-            <p>Key Features:</p>
-            <ul>
-                <li>Visits to museums, historical sites, and cultural events.</li>
-                <li>Expert guides offering insights into the significance of each location.</li>
-                <li>Seamless transportation between destinations.</li>
-            </ul>
-            <br>
-            <br>
-            <li class="package">
-                <h5>4. Nature and Wildlife Excursions:</h5>
-                <div class="package-description">
-            <li>Description: Organize nature-centric trips, including wildlife safaris, bird watching, and nature hikes.
-                Provide transportation and expert guides.</li>
-            <p>Key Features:</p>
-            <ul>
-                <li>Exploration of national parks, reserves, and natural wonders.</li>
-                <li>Guides with expertise in local flora and fauna.</li>
-                <li>Safe and comfortable transportation for wildlife excursions.</li>
-            </ul>
-            <br>
-            <br>
-            <li class="package">
-                <h8>5. City Exploration Services:</h8>
-                <div class="package-description">
-            <li>Description: Offer curated city tours exploring landmarks, hidden gems, and local hotspots. Provide
-                transportation and knowledgeable guides.</li>
-            <p>Key Features:</p>
-            <ul>
-                <li>Tailored city itineraries based on individual interests.</li>
-                <li>Local guides with insights into the city's history and culture.</li>
-                <li>Convenient transportation within the city.</li>
-                <br>
-                <br>
+        <div class="package">
+            <h4>3. Historical and Cultural Tours:</h4>
+            <div class="package-description">
+                <p>Description: Create immersive tours focusing on historical and cultural landmarks. Provide
+                    transportation and knowledgeable guides.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Visits to museums, historical sites, and cultural events.</li>
+                    <li>Expert guides offering insights into the significance of each location.</li>
+                    <li>Seamless transportation between destinations.</li>
+                </ul>
+            </div>
+        </div>
 
-                <li class="package">
-                    <h7>6. Photography Expeditions:</h7>
-                    <div class="package-description">
-                <li>Description: Arrange photography-focused trips to picturesque locations. Provide transportation,
-                    guides, and photography workshops.</li>
+        <div class="package">
+            <h5>4. Nature and Wildlife Excursions:</h5>
+            <div class="package-description">
+                <p>Description: Organize nature-centric trips, including wildlife safaris, bird watching, and nature hikes.
+                    Provide transportation and expert guides.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Exploration of national parks, reserves, and natural wonders.</li>
+                    <li>Guides with expertise in local flora and fauna.</li>
+                    <li>Safe and comfortable transportation for wildlife excursions.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="package">
+            <h6>5. City Exploration Services:</h6>
+            <div class="package-description">
+                <p>Description: Offer curated city tours exploring landmarks, hidden gems, and local hotspots. Provide
+                    transportation and knowledgeable guides.</p>
+                <p>Key Features:</p>
+                <ul>
+                    <li>Tailored city itineraries based on individual interests.</li>
+                    <li>Local guides with insights into the city's history and culture.</li>
+                    <li>Convenient transportation within the city.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="package">
+            <h7>6. Photography Expeditions:</h7>
+            <div class="package-description">
+                <p>Description: Arrange photography-focused trips to picturesque locations. Provide transportation,
+                    guides, and photography workshops.</p>
                 <p>Key Features:</p>
                 <ul>
                     <li>Scenic destinations for photography enthusiasts.</li>
                     <li>Guides with knowledge of optimal photo spots.</li>
                     <li>Transportation to iconic and off-the-beaten-path locations.</li>
-                    <br>
-                    <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- Add more package items as needed -->
-
                 </ul>
+            </div>
+        </div>
+
+        <!-- Add more package items as needed -->
+
     </section>
 
     <section id="contact">
@@ -268,7 +319,6 @@
             Phone: +1 (555) 123-4567
             <br>
             Phone: +1 (555) 123-4567
-
         </address>
     </section>
 
