@@ -10,19 +10,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #5e2a67, #845ec2);
-            /* Gradient background color */
-            color: #fff;
-            /* Light text color */
+            background: linear-gradient(to right, #5ac8fa, #74ebd5),
+                        url('images/bg1.jpg'),
+                        url('images/bg2.jpg'),
+                        url('images/bg3.jpg');
+            /* Gradient background color - light blue-green mix and multiple images */
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #2c3e50;
+            /* Slightly darker text color */
         }
 
         header {
-            background-color: #845ec2;
-            /* Darker purple header color */
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue header color with transparency */
             color: #fff;
             text-align: center;
             padding: 1em;
-            border-bottom: 5px solid #5e2a67;
+            border-bottom: 5px solid #2980b9;
         }
 
         header img {
@@ -31,7 +36,8 @@
         }
 
         nav {
-            background-color: #845ec2;
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue navigation color with transparency */
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -43,43 +49,91 @@
             padding: 0.5em 1em;
             margin: 0 1em;
             border-radius: 25px;
-            background-color: #5e2a67;
-            /* Dark purple button color */
+            background-color: rgba(41, 128, 185, 0.9);
+            /* Dark blue button color with transparency */
             transition: background-color 0.3s ease;
         }
 
         nav a:hover {
-            background-color: #8a4fa6;
-            /* Lighter purple button color on hover */
+            background-color: rgba(77, 166, 255, 0.9);
+            /* Lighter blue button color on hover with transparency */
         }
 
         section {
+            position: relative;
             padding: 2em;
             text-align: center;
+            overflow: hidden;
         }
 
         section h2 {
-            color: #5e2a67;
-            /* Dark purple heading color */
+            color: #2980b9;
+            /* Dark blue heading color */
+        }
+
+        #home {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('images/mountain1.jpg'),
+                        url('images/mountain2.jpg'),
+                        url('images/mountain3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            color: #fff;
+            /* White text color for better readability */
+            padding: 3em;
+        }
+
+        #home img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        #home:hover img {
+            opacity: 0.5;
+            /* Reduce opacity on hover */
+        }
+
+        #welcome-text {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #welcome-text p {
+            display: inline-block;
+            animation: slideIn 3s ease-in-out infinite;
+            font-size: 2em; /* Increased font size */
+            color: #fff;    /* White text color */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+            }
+            50% {
+                transform: translateY(0%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
 
         footer {
-            background-color: #845ec2;
+            background-color: rgba(52, 152, 219, 0.9);
+            /* Darker blue footer color with transparency */
             color: #fff;
             text-align: center;
             padding: 1em;
             position: fixed;
             bottom: 0;
             width: 100%;
-            border-top: 5px solid #5e2a67;
-        }
-
-        #home img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            margin-top: 1em;
+            border-top: 5px solid #2980b9;
         }
 
         #destinations ul,
@@ -90,7 +144,8 @@
 
         #destinations ul li,
         #packages ul li {
-            background-color: #5e2a67;
+            background-color: rgba(41, 128, 185, 0.9);
+            /* Dark blue list item color with transparency */
             border-radius: 10px;
             margin: 0.5em 0;
             padding: 1em;
@@ -99,8 +154,8 @@
 
         #destinations ul li:hover,
         #packages ul li:hover {
-            background-color: #8a4fa6;
-            /* Lighter purple on hover */
+            background-color: rgba(77, 166, 255, 0.9);
+            /* Lighter blue on hover with transparency */
         }
 
         #packages .package {
@@ -133,9 +188,13 @@
     </nav>
 
     <section id="home">
-        <h2>Welcome to Thrifty Voyage Ventures</h2>
-        <p>Affordable Journeys, Unforgettable Experiences!</p>
-        <img src="images/travel-image.jpg" alt="Travel Image">
+        <div id="welcome-text">
+            <p>Welcome to Thrifty Voyage Ventures</p><br>
+            <p>Affordable Journeys, Unforgettable Experiences!</p>
+        </div>
+        <img src="images/mountain1.jpg" alt="Mountain Image 1">
+        <img src="images/mountain2.jpg" alt="Mountain Image 2">
+        <img src="images/mountain3.jpg" alt="Mountain Image 3">
     </section>
 
     <section id="destinations">
@@ -260,7 +319,6 @@
             Phone: +1 (555) 123-4567
             <br>
             Phone: +1 (555) 123-4567
-
         </address>
     </section>
 
